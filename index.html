@@ -280,8 +280,8 @@
   <link rel="stylesheet" href="css/styles.css" />
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons -->
-  <script defer src="https://unpkg.com/lucide@latest"></script>
+  <!-- Lucide Icons (Versión fija con caché de 1 año) -->
+  <script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
 </head>
 <body class="bg-dot-pattern text-slate-900 antialiased selection:bg-[#003399] selection:text-white">
 
@@ -1112,7 +1112,7 @@
     rel="noopener noreferrer"
     aria-label="Chatear por WhatsApp con Suzuki Cúcuta"
     class="fixed safe-floating-whatsapp right-4 sm:right-5 z-40 whatsapp-pulse text-white p-3.5 rounded-full shadow-2xl flex items-center gap-2 group">
-    <img src="assets/WhatsApp.svg" alt="WhatsApp" width="28" height="28" class="w-7 h-7 shrink-0" />
+    <img src="assets/WhatsApp.svg" alt="WhatsApp" width="28" height="28" loading="lazy" decoding="async" class="w-7 h-7 shrink-0" />
     <span class="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap text-xs font-extrabold pr-0 group-hover:pr-2">
       WhatsApp Oficial Suzuki Cúcuta
     </span>

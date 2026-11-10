@@ -1,13 +1,62 @@
 # =====================================================================
 # .htaccess — Suzuki Cúcuta (Av. 11 E #5 09, Br. Colsag, Cúcuta, Norte de Santander)
-# Optimización Máxima para Google Chrome, Core Web Vitals (LCP, INP, CLS),
-# iOS (Safari/Chrome), Android y Computador
+# ESCUDO DE SEGURIDAD WAF ANTI-DDOS, ANTI-BOTS, ANTI-INYECCIÓN SQL/XSS
+# Y OPTIMIZACIÓN CORE WEB VITALS PARA GOOGLE CHROME (IOS, ANDROID Y PC)
 # =====================================================================
 
-# 1. Codificación UTF-8 por defecto
+# 1. Codificación UTF-8 y Desactivación de Listado de Directorios y Firma de Servidor
 AddDefaultCharset UTF-8
+Options -Indexes -MultiViews
+ServerSignature Off
 
-# 2. Tipos MIME Oficiales para Chrome, iOS Safari y Android
+# 2. Mitigación de Ataques DDoS de Capa 7 / Payloads Gigantes / Slowloris
+# Limita el tamaño máximo del cuerpo de petición HTTP a 5 MB y tiempo de espera
+LimitRequestBody 5242880
+LimitRequestFields 50
+LimitRequestFieldSize 4094
+LimitRequestLine 4094
+
+# 3. Bloqueo de Acceso a Archivos Sensibles, Ocultos y de Configuración
+<FilesMatch "(^\.|\.(bak|config|sql|fla|psd|ini|log|sh|inc|swp|dist|env|git|svn|htpasswd)$)">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# 4. Firewall WAF (mod_rewrite): Anti-DDoS, Bloqueo de Bots de Ataque y Anti-XSS/SQLi
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # 4A. Bloquear métodos HTTP peligrosos usados en ataques (solo permitir GET, HEAD, POST, OPTIONS)
+  RewriteCond %{REQUEST_METHOD} !^(GET|HEAD|POST|OPTIONS)$ [NC]
+  RewriteRule .* - [F,L]
+
+  # 4B. Bloquear Herramientas de Ataque DDoS, Escáneres de Vulnerabilidades y Bots Maliciosos
+  # (NUNCA bloquea a Googlebot, Googlebot-Image, Googlebot-Mobile, Bingbot, WhatsApp ni Facebook)
+  RewriteCond %{HTTP_USER_AGENT} (sqlmap|nikto|nmap|masscan|zgrab|siege|wrk|havij|acunetix|nessus|openvas|dirbuster|gobuster|wpscan|libwww-perl|python-urllib|MJ12bot|DotBot|BLEXBot|MegaIndex|SemrushBot|AhrefsBot| PetalBot|HTTrack|clshttp|archiver|loader|stress|flood) [NC]
+  RewriteRule .* - [F,L]
+
+  # 4C. Escudo contra Inyecciones XSS, SQL Injection, LFI/RFI y Path Traversal en la URL
+  RewriteCond %{QUERY_STRING} (\<|%3C).*script.*(\>|%3E) [NC,OR]
+  RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+  RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2}) [OR]
+  RewriteCond %{QUERY_STRING} (base64_encode|eval\(|union.*select|concat\(|information_schema|benchmark\(|sleep\() [NC,OR]
+  RewriteCond %{QUERY_STRING} (\.\./|\.\.\\|/etc/passwd|boot\.ini|win\.ini|proc/self/environ) [NC]
+  RewriteRule .* - [F,L]
+
+  # 4D. Protección Anti-Hotlinking (Evita que sitios externos roben el ancho de banda del video MP4 y fotos)
+  # Permite carga directa, el propio dominio, Google, Bing, WhatsApp, Facebook e Instagram
+  RewriteCond %{HTTP_REFERER} !^$
+  RewriteCond %{HTTP_REFERER} !^https?://(www\.)?suzukicucuta\.com\.co [NC]
+  RewriteCond %{HTTP_REFERER} !^https?://(www\.)?(google\.|bing\.|yahoo\.|duckduckgo\.|facebook\.|instagram\.|whatsapp\.|t\.co) [NC]
+  RewriteRule \.(mp4|png|jpg|jpeg|webp)$ - [F,NC,L]
+</IfModule>
+
+# 5. Tipos MIME Oficiales para Chrome, iOS Safari y Android
 <IfModule mod_mime.c>
   AddType application/manifest+json .webmanifest
   AddType image/svg+xml .svg
@@ -17,7 +66,7 @@ AddDefaultCharset UTF-8
   AddType text/css .css
 </IfModule>
 
-# 3. Compresión GZIP y Brotli para carga instantánea en móviles y PC
+# 6. Compresión GZIP y Deflate para carga instantánea en móviles y PC
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
   AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript
@@ -25,7 +74,7 @@ AddDefaultCharset UTF-8
   AddOutputFilterByType DEFLATE application/xml image/svg+xml
 </IfModule>
 
-# 4. Caché de Navegador de Alto Rendimiento (100/100 en Google PageSpeed Insights)
+# 7. Caché de Navegador de Alto Rendimiento (Absorbe picos de tráfico y mejora Core Web Vitals)
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresDefault "access plus 1 month"
@@ -42,18 +91,32 @@ AddDefaultCharset UTF-8
   ExpiresByType video/mp4 "access plus 1 year"
 </IfModule>
 
+# 8. Cabeceras de Ciberseguridad Avanzada y Protección de Navegador
 <IfModule mod_headers.c>
   # Caché inmutable para fotos de motos, video de fondo, estilos y scripts
   <FilesMatch "\.(png|jpg|jpeg|webp|svg|mp4|css|js)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 
-  # Cabeceras de Seguridad y Mejores Prácticas de Google Chrome Lighthouse
+  # Ocultar versión de PHP / Servidor para evitar reconocimiento de atacantes
+  Header unset X-Powered-By
+  Header unset Server
+
+  # Cabeceras Oficiales de Seguridad Web (HSTS, Anti-Clickjacking, Anti-MIME Sniffing, Anti-XSS)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
   Header always set X-Content-Type-Options "nosniff"
   Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-XSS-Protection "1; mode=block"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
-  Header always set Permissions-Policy "geolocation=(self), microphone=(), camera=()"
+  Header always set X-Permitted-Cross-Domain-Policies "none"
+  Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+  Header always set Permissions-Policy "geolocation=(self), microphone=(), camera=(), payment=(), usb=()"
+  Header always set Content-Security-Policy "default-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; media-src 'self' https: data: blob:; frame-src 'self' https://maps.google.com https://www.google.com; connect-src 'self' https:; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://wa.me;"
+
+  # Mantener conexiones eficientes contra saturación
+  Header set Connection keep-alive
 </IfModule>
 
-# 5. Página 404 personalizada de Suzuki Cúcuta
+# 9. Página 404 personalizada de Suzuki Cúcuta
 ErrorDocument 404 /404.html
+ErrorDocument 403 /404.html

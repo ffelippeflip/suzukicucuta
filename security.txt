@@ -1,0 +1,9 @@
+# =====================================================================
+# security.txt (RFC 9116) — Suzuki Cúcuta
+# Sede Oficial: Av. 11 E #5 09, Br. Colsag, Cúcuta, Norte de Santander
+# =====================================================================
+Contact: mailto:contacto@suzukicucuta.com.co
+Contact: https://wa.me/573143826181
+Preferred-Languages: es, en
+Canonical: https://suzukicucuta.com.co/security.txt
+Expires: 2028-12-31T23:59:59.000Z

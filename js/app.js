@@ -493,7 +493,12 @@ function setCategoryFilter(category) {
 
 let searchDebounceTimer = null;
 function handleCatalogSearch(value) {
-  state.searchQuery = value.trim().toLowerCase();
+  const cleanValue = String(value || "")
+    .replace(/[<>"'`\\]/g, "")
+    .slice(0, 80)
+    .trim()
+    .toLowerCase();
+  state.searchQuery = cleanValue;
   if (searchDebounceTimer) clearTimeout(searchDebounceTimer);
   searchDebounceTimer = setTimeout(() => {
     renderBikeCatalog();
@@ -1745,8 +1750,48 @@ function renderLocationCard() {
 }
 
 // ==========================================
-// 9. AGENDAMIENTO DE TALLER Y REPUESTOS / WHATSAPP
+// 9. ESCUDO DE SEGURIDAD ANTI-SPAM, ANTI-XSS, HONEYPOT Y RATE-LIMITING
+//    + AGENDAMIENTO DE TALLER Y REPUESTOS / WHATSAPP
 // ==========================================
+const securityRateLimiter = {
+  lastActionTime: 0,
+  actionTimestamps: []
+};
+
+function sanitizeUserText(input, maxLen = 220) {
+  return String(input || "")
+    .replace(/[<>{}[\]\\^`|~]/g, "")
+    .replace(/(javascript:|data:|vbscript:|onload=|onerror=|onclick=)/gi, "")
+    .trim()
+    .slice(0, maxLen);
+}
+
+function isBotOrFloodBlocked(formEl) {
+  // 1. Verificación de Honeypot invisible contra bots automatizados
+  if (formEl) {
+    const hp = formEl.querySelector('input[name="website_hp"]');
+    if (hp && hp.value && hp.value.trim() !== "") {
+      return true;
+    }
+  }
+  // 2. Limitador de ráfagas (Rate-Limiting contra inundación / flood de formularios)
+  const now = Date.now();
+  if (now - securityRateLimiter.lastActionTime < 2200) {
+    showToast("Por seguridad anti-spam, espera unos segundos antes de enviar otra solicitud.");
+    return true;
+  }
+  securityRateLimiter.actionTimestamps = securityRateLimiter.actionTimestamps.filter(
+    (t) => now - t < 60000
+  );
+  if (securityRateLimiter.actionTimestamps.length >= 6) {
+    showToast("Límite de seguridad alcanzado. Intenta nuevamente en un minuto.");
+    return true;
+  }
+  securityRateLimiter.lastActionTime = now;
+  securityRateLimiter.actionTimestamps.push(now);
+  return false;
+}
+
 function openWorkshopModal() {
   const modal = document.getElementById("workshopModal");
   if (modal) {
@@ -1765,18 +1810,20 @@ function closeWorkshopModal() {
 
 function submitWorkshopForm(event) {
   event.preventDefault();
-  const name = document.getElementById("wsName").value.trim();
-  const phone = document.getElementById("wsPhone").value.trim();
-  const model = document.getElementById("wsBikeModel").value.trim();
-  const serviceType = document.getElementById("wsServiceType").value;
-  const sede = document.getElementById("wsSede").value;
-  const date = document.getElementById("wsDate").value;
+  if (isBotOrFloodBlocked(event.target)) return;
+
+  const name = sanitizeUserText(document.getElementById("wsName").value, 80);
+  const phone = sanitizeUserText(document.getElementById("wsPhone").value, 25);
+  const model = sanitizeUserText(document.getElementById("wsBikeModel").value, 80);
+  const serviceType = sanitizeUserText(document.getElementById("wsServiceType").value, 120);
+  const sede = sanitizeUserText(document.getElementById("wsSede").value, 120);
+  const date = sanitizeUserText(document.getElementById("wsDate").value, 25);
 
   const msg = `¡Hola Servicio Técnico Especializado Suzuki Cúcuta! Deseo agendar una cita de taller:\n\n• Cliente: *${name}*\n• Teléfono: ${phone}\n• Motocicleta Suzuki: *${model}*\n• Servicio requerido: ${serviceType}\n• Sede: ${sede}\n• Fecha solicitada: ${date}\n\nQuedo atento a la confirmación de mi turno.`;
 
   closeWorkshopModal();
   showToast("Redirigiendo al WhatsApp de Servicio Técnico Suzuki Cúcuta...");
-  window.open(`https://wa.me/${OFFICIAL_WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank");
+  window.open(`https://wa.me/${OFFICIAL_WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
 }
 
 function openPartsModal() {
@@ -1797,32 +1844,36 @@ function closePartsModal() {
 
 function submitPartsForm(event) {
   event.preventDefault();
-  const name = document.getElementById("ptName").value.trim();
-  const phone = document.getElementById("ptPhone").value.trim();
-  const bikeModel = document.getElementById("ptBikeModel").value.trim();
-  const bikeYear = document.getElementById("ptBikeYear").value.trim() || "Por confirmar";
-  const partCategory = document.getElementById("ptCategory").value;
-  const partDetails = document.getElementById("ptDetails").value.trim();
+  if (isBotOrFloodBlocked(event.target)) return;
+
+  const name = sanitizeUserText(document.getElementById("ptName").value, 80);
+  const phone = sanitizeUserText(document.getElementById("ptPhone").value, 25);
+  const bikeModel = sanitizeUserText(document.getElementById("ptBikeModel").value, 80);
+  const bikeYear = sanitizeUserText(document.getElementById("ptBikeYear").value, 20) || "Por confirmar";
+  const partCategory = sanitizeUserText(document.getElementById("ptCategory").value, 120);
+  const partDetails = sanitizeUserText(document.getElementById("ptDetails").value, 300);
 
   const msg = `¡Hola Almacén de Repuestos Originales Suzuki Cúcuta! Solicito cotización de repuesto bajo el siguiente formato:\n\n• Cliente: *${name}*\n• Celular: ${phone}\n• Motocicleta Suzuki: *${bikeModel}*\n• Modelo / Año: ${bikeYear}\n• Categoría de pieza: ${partCategory}\n• Repuesto solicitado / Referencia: *${partDetails}*\n\nQuedo atento a disponibilidad y precio en Av. 11 E #5 09, Br. Colsag, Cúcuta, Norte de Santander.`;
 
   closePartsModal();
   showToast("Enviando solicitud de repuesto original por WhatsApp...");
-  window.open(`https://wa.me/${OFFICIAL_WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank");
+  window.open(`https://wa.me/${OFFICIAL_WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
   event.target.reset();
 }
 
 function submitHelpForm(event) {
   event.preventDefault();
-  const name = document.getElementById("helpName").value.trim();
-  const phone = document.getElementById("helpPhone").value.trim();
-  const area = document.getElementById("helpArea").value;
-  const message = document.getElementById("helpMessage").value.trim();
+  if (isBotOrFloodBlocked(event.target)) return;
+
+  const name = sanitizeUserText(document.getElementById("helpName").value, 80);
+  const phone = sanitizeUserText(document.getElementById("helpPhone").value, 25);
+  const area = sanitizeUserText(document.getElementById("helpArea").value, 120);
+  const message = sanitizeUserText(document.getElementById("helpMessage").value, 350);
 
   const text = `¡Hola Suzuki Cúcuta! Solicito asesoría personalizada desde el sitio web:\n\n• Nombre: *${name}*\n• Celular: ${phone}\n• Área de consulta: *${area}*\n• Mensaje: ${message}`;
 
   showToast("¡Solicitud lista! Conectando con un asesor en Suzuki Cúcuta...");
-  window.open(`https://wa.me/${OFFICIAL_WHATSAPP}?text=${encodeURIComponent(text)}`, "_blank");
+  window.open(`https://wa.me/${OFFICIAL_WHATSAPP}?text=${encodeURIComponent(text)}`, "_blank", "noopener,noreferrer");
   event.target.reset();
 }
 

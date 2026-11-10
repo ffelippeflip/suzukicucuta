@@ -1,0 +1,45 @@
+# =====================================================================
+# robots.txt — Suzuki Cúcuta
+# Concesionario Oficial Suzuki en Cúcuta y Norte de Santander, Colombia
+# Dirección: Av. 11 E #5 09, Br. Colsag, Cúcuta, Norte de Santander
+# =====================================================================
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /css/
+Allow: /js/
+Allow: /assets/
+Allow: /motos/
+
+# Motores de búsqueda principales para posicionamiento #1 en Google Colombia
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /motos/
+Allow: /assets/
+
+User-agent: Googlebot-Video
+Allow: /motos/
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Ubicación del Sitemap XML Oficial para Google Search Console
+Sitemap: https://suzukicucuta.com.co/sitemap.xml

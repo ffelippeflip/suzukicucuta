@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Página Principal: Concesionario Oficial Suzuki Cúcuta — Av. 11 E #5 09, Br. Colsag, Cúcuta, Norte de Santander -->
+  <url>
+    <loc>https://suzukicucuta.com.co/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es-CO" href="https://suzukicucuta.com.co/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://suzukicucuta.com.co/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://suzukicucuta.com.co/" />
+
+    <!-- Video Principal Hero -->
+    <video:video>
+      <video:thumbnail_loc>https://suzukicucuta.com.co/motos/ANTES%20DE%20ENTRAR%20AL%20SITIO%20WEB.jpg</video:thumbnail_loc>
+      <video:title>Suzuki Cúcuta — Siente la Potencia Suzuki en Cúcuta y Norte de Santander</video:title>
+      <video:description>Concesionario Oficial Suzuki Cúcuta en Av. 11 E #5 09, Br. Colsag, Cúcuta, Norte de Santander. Venta de motos nuevas, financiación inmediata, repuestos originales ECSTAR y servicio técnico certificado.</video:description>
+      <video:content_loc>https://suzukicucuta.com.co/motos/VIDEO%20DE%20FONDO.mp4</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+
+    <!-- Imágenes Indexadas con Geolocalización en Cúcuta y Norte de Santander (29 Referencias Oficiales) -->
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/ANTES%20DE%20ENTRAR%20AL%20SITIO%20WEB.jpg</image:loc>
+      <image:title>Nuevos Lanzamientos Suzuki Cúcuta: Burgman 15, GN 160 RL y GSX-8T en Norte de Santander</image:title>
+      <image:caption>Concesionario Oficial Suzuki Cúcuta en Av. 11 E #5 09, Br. Colsag, Cúcuta, Norte de Santander.</image:caption>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/GIXXER-250-AZUL-2026_0.png</image:loc>
+      <image:title>Suzuki Gixxer 250 ABS en Cúcuta y Norte de Santander — Precio y Ficha Técnica</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/GIXXER-150-FI-ABS-AZUL-2027.png</image:loc>
+      <image:title>Suzuki Gixxer 150 FI ABS en Cúcuta — Concesionario Suzuki Cúcuta</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/GIXXER--SF-150-FI-ABS-AZUL.png</image:loc>
+      <image:title>Suzuki Gixxer SF 150 FI ABS en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/GSX-R150-ABS-AZUL.png</image:loc>
+      <image:title>Suzuki GSX-R150 ABS en Cúcuta — Super Sport 150</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/GSX-S150-ABS-AZUL.png</image:loc>
+      <image:title>Suzuki GSX-S150 ABS en Cúcuta — Naked Sport 150</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/GN160RL(GRAY).png</image:loc>
+      <image:title>Nueva Suzuki GN 160 RL ABS en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/GN125ABS%20AZUL.png</image:loc>
+      <image:title>Suzuki GN 125 ABS en Cúcuta — Precio, Crédito y Ficha Técnica</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/AX4%20ABS%20AZUL.png</image:loc>
+      <image:title>Suzuki AX4 ABS en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/V-STROM_250SX-2027-AMARILLA.png</image:loc>
+      <image:title>Suzuki V-Strom 250 SX en Cúcuta y Norte de Santander — Ficha Técnica y Precio</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/V-STROM%20160%20AMARILLA.png</image:loc>
+      <image:title>Suzuki V-Strom 160 FI ABS en Cúcuta — Concesionario Suzuki Cúcuta</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/V-STROM-800-DE-AMARILLA.png</image:loc>
+      <image:title>Suzuki V-Strom 800 DE en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/V-STROM-800-DE-TRAVEL-AMARILLA.png</image:loc>
+      <image:title>Suzuki V-Strom 800 DE Travel en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/DR-150-AMARILLA-1385x800_0.png</image:loc>
+      <image:title>Suzuki DR 150 FI ABS en Cúcuta y Norte de Santander — Precio y Ficha Técnica</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/DR-160-AZUL-1385x800_0.png</image:loc>
+      <image:title>Suzuki DR 160 FI ABS en Cúcuta — Todo Terreno Enduro</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/DR-Z4S-AMARILLA.png</image:loc>
+      <image:title>Suzuki DR-Z4S Dual Sport en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/DR-Z4SM-AZUL.png</image:loc>
+      <image:title>Suzuki DR-Z4SM Supermotard en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/BURGMAN-15-BLANCA_0.png</image:loc>
+      <image:title>Nueva Suzuki Burgman 15 ABS en Cúcuta — Scooter Ejecutiva</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/BURGMAN%20FI%20BLANCA.png</image:loc>
+      <image:title>Suzuki Burgman FI en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/AVENIS%20BLANCA.png</image:loc>
+      <image:title>Suzuki Avenis 125 FI en Cúcuta — Scooter Deportiva</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/ADDRESS-NEGRA.png</image:loc>
+      <image:title>Suzuki Address FI en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/VIVA-R-FI-ABS-AZUL-MATE.png</image:loc>
+      <image:title>Suzuki Viva R FI ABS en Cúcuta y Norte de Santander — Semiautomática</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/GSX-8T-NARANJA.png</image:loc>
+      <image:title>Nueva Suzuki GSX-8T en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/8TT-RIN-DORADO.png</image:loc>
+      <image:title>Nueva Suzuki GSX-8TT en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/GSX-8S.png</image:loc>
+      <image:title>Suzuki GSX-8S en Cúcuta — Alto Cilindraje Suzuki</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/GSX-8R-BLANCA_0.png</image:loc>
+      <image:title>Suzuki GSX-8R en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/GSX-S1000-AZUL.png</image:loc>
+      <image:title>Suzuki GSX-S1000 en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/GSX-S1000GX%20AZUL.png</image:loc>
+      <image:title>Suzuki GSX-S1000GX Crossover en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/GSX%20R1000R.png</image:loc>
+      <image:title>Suzuki GSX-R1000R Superbike en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+    <image:image>
+      <image:loc>https://suzukicucuta.com.co/motos/HAYABUSA%20NEGRA.png</image:loc>
+      <image:title>Suzuki Hayabusa GSX1300R en Cúcuta y Norte de Santander</image:title>
+      <image:geo_location>San José de Cúcuta, Norte de Santander, Colombia</image:geo_location>
+    </image:image>
+  </url>
+
+  <!-- Motocicletas Destacadas en Cúcuta: Gixxer 250 ABS, V-Strom 250 SX y DR 150 FI ABS -->
+  <url>
+    <loc>https://suzukicucuta.com.co/#motos-destacadas</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Catálogo Completo de las 29 Motocicletas Suzuki y Fichas Técnicas en Cúcuta -->
+  <url>
+    <loc>https://suzukicucuta.com.co/#catalogo-motos</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Suzuki: Excelencia Japonesa en Cúcuta y Norte de Santander -->
+  <url>
+    <loc>https://suzukicucuta.com.co/#excelencia-japonesa</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Nuestros Servicios en Cúcuta: Servicio Técnico SDS-II, Repuestos ECSTAR y Garantía -->
+  <url>
+    <loc>https://suzukicucuta.com.co/#nuestros-servicios</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Simulador de Crédito de Motos Suzuki en Cúcuta y Norte de Santander -->
+  <url>
+    <loc>https://suzukicucuta.com.co/#simulador-credito</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Testimonios de Clientes en Cúcuta y Norte de Santander -->
+  <url>
+    <loc>https://suzukicucuta.com.co/#testimonios-clientes</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Recomendaciones Oficiales y Lubricación ECSTAR -->
+  <url>
+    <loc>https://suzukicucuta.com.co/#recomendaciones</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Últimas Entradas y Novedades Suzuki Norte de Santander -->
+  <url>
+    <loc>https://suzukicucuta.com.co/#ultimas-entradas</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Preguntas Frecuentes sobre Compra, Matrícula y Garantía en Cúcuta -->
+  <url>
+    <loc>https://suzukicucuta.com.co/#preguntas-frecuentes</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Contacto y Asesoría por WhatsApp en Cúcuta -->
+  <url>
+    <loc>https://suzukicucuta.com.co/#necesitas-ayuda</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Ficha de Ubicación Oficial: Av. 11 E #5 09, Br. Colsag, Cúcuta, Norte de Santander -->
+  <url>
+    <loc>https://suzukicucuta.com.co/#ficha-ubicacion</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+</urlset>

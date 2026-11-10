@@ -1,0 +1,320 @@
+/* Estilos personalizados - Suzuki Cúcuta (Av. 11 E #5 09, Br. Colsag, Cúcuta, Norte de Santander)
+   Guiado en la estructura de suzukimotordecolombiamedellin.com
+   Optimizado para Core Web Vitals (LCP, INP, CLS) en Android, iPhone (iOS Safari) y PC (Google Chrome / Edge) */
+
+:root {
+  --suzuki-blue: #003399;
+  --suzuki-blue-dark: #002266;
+  --suzuki-red: #E30613;
+  --suzuki-red-dark: #B8000E;
+  --suzuki-dark: #0B0F19;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: hidden;
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
+  overscroll-behavior-x: none;
+  background-color: #ffffff;
+  background-image: radial-gradient(#cbd5e1 1.45px, transparent 1.45px);
+  background-size: 20px 20px;
+}
+
+/* Fondo de puntos (Polka-dot grid) solicitado para toda la página y secciones claras */
+.bg-dot-pattern {
+  background-color: #ffffff;
+  background-image: radial-gradient(#cbd5e1 1.45px, transparent 1.45px);
+  background-size: 20px 20px;
+}
+
+/* Optimización Google Chrome y Safari 18+ (content-visibility) para renderizado ultrarrápido de secciones bajo el pliegue */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 750px;
+}
+
+/* Altura dinámica del Hero con Video de Fondo para iPhone (Safari barra retráctil), Android (Chrome) y PC */
+.hero-section {
+  min-height: 86vh;
+  min-height: 86svh;
+}
+
+@media screen and (min-width: 640px) {
+  .hero-section {
+    min-height: 92vh;
+    min-height: 92svh;
+  }
+}
+
+/* Soporte completo de Backdrop Blur para iPhone (iOS Safari WebKit) y Android/PC */
+header.sticky,
+#entryPromoModal,
+#compareStickyBar,
+#specModal,
+#compareModal,
+#workshopModal,
+#partsModal,
+#blogModal {
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* Aceleración por hardware GPU para elementos fijos en Android, iPhone y PC */
+header.sticky,
+#compareStickyBar,
+.safe-floating-whatsapp {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Evitar el auto-zoom forzado de Safari en iPhone al tocar inputs, selects o textareas */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="number"],
+  input[type="date"],
+  input[type="search"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Soporte para Safe Area en iPhone (barra inferior Home Indicator y Notch) */
+.safe-bottom-bar {
+  padding-bottom: calc(0.75rem + var(--safe-bottom));
+}
+
+.safe-floating-whatsapp {
+  bottom: calc(4.25rem + var(--safe-bottom));
+}
+
+/* Ocultar barra de scroll en contenedores deslizables móviles (categorías, slots) */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Mejora táctil para botones e interactivos en Android y iOS */
+button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+/* Área táctil expandida para botones de color en iOS y Android (cumple 100% Google Lighthouse Mobile Tap Targets) */
+button[data-color-btn] {
+  position: relative;
+}
+
+button[data-color-btn]::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+}
+
+/* Bloqueo de scroll de fondo cuando un modal está abierto en iPhone, Android y PC */
+body.modal-open {
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* Alturas dinámicas de pantalla (dvh) para navegadores móviles con barra de dirección retráctil */
+.mobile-modal-sheet {
+  max-height: 92vh;
+  max-height: 92dvh;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}
+
+.font-heading {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-hero {
+  font-family: 'Montserrat', 'Oswald', sans-serif;
+  letter-spacing: 0.01em;
+}
+
+/* Degradados y fondos de marca Suzuki */
+.bg-suzuki-gradient {
+  background-color: #070C18;
+  background-image: linear-gradient(135deg, #070C18 0%, #0B1938 55%, #003399 100%);
+}
+
+.bg-suzuki-red-gradient {
+  background-color: #E30613;
+  background-image: linear-gradient(135deg, #E30613 0%, #B8000E 100%);
+}
+
+/* Carrusel / Cinta movible de Tecnologías Suzuki en las Fichas Técnicas */
+@keyframes techScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.tech-strip-wrapper {
+  background-color: #000000;
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.tech-strip-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.tech-strip-wrapper:active {
+  cursor: grabbing;
+}
+
+.tech-strip-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: techScroll 24s linear infinite;
+}
+
+.tech-strip-wrapper:hover .tech-strip-track,
+.tech-strip-wrapper.is-dragging .tech-strip-track {
+  animation-play-state: paused;
+}
+
+/* Animación sutil para el botón flotante de WhatsApp */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.96);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.75);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    transform: scale(0.96);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-pulse {
+  background-color: #25D366;
+  animation: pulse-ring 2.2s infinite;
+}
+
+.whatsapp-pulse:hover {
+  background-color: #1EBE5D;
+}
+
+/* Tarjetas de motocicletas optimizadas para PC (hover fino) y táctil (Android / iPhone) */
+.bike-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .bike-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -10px rgba(0, 51, 153, 0.18);
+  }
+
+  .bike-card:hover .bike-img {
+    transform: scale(1.05);
+  }
+}
+
+.bike-img {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Respeto por ahorro de batería y reducción de movimiento en Android, iOS y Windows/macOS */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .tech-strip-track,
+  .whatsapp-pulse {
+    animation: none !important;
+  }
+  .bike-card,
+  .bike-img {
+    transition: none !important;
+  }
+}
+
+/* Barra de desplazamiento personalizada en modales */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #F1F5F9;
+  border-radius: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Estilo de impresión para Ficha Técnica */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #specModalContent,
+  #specModalContent * {
+    visibility: visible;
+  }
+  #specModalContent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    max-height: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 56" fill="none">
+  <!-- Símbolo oficial "S" de Suzuki -->
+  <path d="M28.5 3L53 18.2L40.8 25.8L28.5 18.2L18.8 24.2L49.5 43.2L28.5 53L4 37.8L16.2 30.2L28.5 37.8L38.2 31.8L7.5 12.8L28.5 3Z" fill="#E30613"/>
+  <!-- Tipografía SUZUKI Blanca para fondo oscuro -->
+  <text x="64" y="39" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-style="italic" font-size="34" letter-spacing="1.5" fill="#FFFFFF">SUZUKI</text>
+</svg>

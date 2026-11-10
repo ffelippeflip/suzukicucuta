@@ -1,0 +1,59 @@
+# =====================================================================
+# .htaccess — Suzuki Cúcuta (Av. 11 E #5 09, Br. Colsag, Cúcuta, Norte de Santander)
+# Optimización Máxima para Google Chrome, Core Web Vitals (LCP, INP, CLS),
+# iOS (Safari/Chrome), Android y Computador
+# =====================================================================
+
+# 1. Codificación UTF-8 por defecto
+AddDefaultCharset UTF-8
+
+# 2. Tipos MIME Oficiales para Chrome, iOS Safari y Android
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+  AddType image/svg+xml .svg
+  AddType video/mp4 .mp4
+  AddType application/xml .xml
+  AddType text/javascript .js
+  AddType text/css .css
+</IfModule>
+
+# 3. Compresión GZIP y Brotli para carga instantánea en móviles y PC
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/ld+json application/manifest+json
+  AddOutputFilterByType DEFLATE application/xml image/svg+xml
+</IfModule>
+
+# 4. Caché de Navegador de Alto Rendimiento (100/100 en Google PageSpeed Insights)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/xml "access plus 1 hour"
+  ExpiresByType application/manifest+json "access plus 1 week"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType text/javascript "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType video/mp4 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Caché inmutable para fotos de motos, video de fondo, estilos y scripts
+  <FilesMatch "\.(png|jpg|jpeg|webp|svg|mp4|css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Cabeceras de Seguridad y Mejores Prácticas de Google Chrome Lighthouse
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "geolocation=(self), microphone=(), camera=()"
+</IfModule>
+
+# 5. Página 404 personalizada de Suzuki Cúcuta
+ErrorDocument 404 /404.html

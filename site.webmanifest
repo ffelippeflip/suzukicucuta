@@ -1,0 +1,18 @@
+{
+  "name": "Suzuki Cúcuta | Concesionario Oficial de Motocicletas",
+  "short_name": "Suzuki Cúcuta",
+  "description": "Concesionario Suzuki Cúcuta en Av. 11 E #5 09, Br. Colsag, Cúcuta, Norte de Santander. Motocicletas nuevas, repuestos originales ECSTAR y servicio técnico especializado.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B0F19",
+  "theme_color": "#003399",
+  "lang": "es-CO",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -224,10 +224,10 @@ function injectCatalogSeoSchema() {
         },
         "category": bike.categoryLabel,
         "sku": `SUZ-CUC-${bike.id.toUpperCase()}`,
-        "image": `https://suzukicucuta.com.co/${safeImgUrl(bike.colors[0]?.image || bike.bannerImage)}`,
+        "image": `https://suzukicolsagcucuta.com/${safeImgUrl(bike.colors[0]?.image || bike.bannerImage)}`,
         "offers": {
           "@type": "Offer",
-          "url": `https://suzukicucuta.com.co/#catalogo-motos`,
+          "url": `https://suzukicolsagcucuta.com/#catalogo-motos`,
           "priceCurrency": "COP",
           "price": bike.price,
           "availability": "https://schema.org/InStock",

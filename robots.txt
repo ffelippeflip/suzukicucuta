@@ -42,4 +42,4 @@ User-agent: WhatsApp
 Allow: /
 
 # Ubicación del Sitemap XML Oficial para Google Search Console
-Sitemap: https://suzukicucuta.com.co/sitemap.xml
+Sitemap: https://suzukicolsagcucuta.com/sitemap.xml

@@ -51,7 +51,7 @@ LimitRequestLine 4094
   # 4D. Protección Anti-Hotlinking (Evita que sitios externos roben el ancho de banda del video MP4 y fotos)
   # Permite carga directa, el propio dominio, Google, Bing, WhatsApp, Facebook e Instagram
   RewriteCond %{HTTP_REFERER} !^$
-  RewriteCond %{HTTP_REFERER} !^https?://(www\.)?suzukicucuta\.com\.co [NC]
+  RewriteCond %{HTTP_REFERER} !^https?://(www\.)?suzukicolsagcucuta\.com [NC]
   RewriteCond %{HTTP_REFERER} !^https?://(www\.)?(google\.|bing\.|yahoo\.|duckduckgo\.|facebook\.|instagram\.|whatsapp\.|t\.co) [NC]
   RewriteRule \.(mp4|png|jpg|jpeg|webp)$ - [F,NC,L]
 </IfModule>

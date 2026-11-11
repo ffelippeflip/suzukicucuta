@@ -17,8 +17,10 @@ User-agent: Googlebot
 Allow: /
 
 User-agent: Googlebot-Image
+Allow: /
 Allow: /motos/
 Allow: /assets/
+Allow: /favicon*
 
 User-agent: Googlebot-Video
 Allow: /motos/

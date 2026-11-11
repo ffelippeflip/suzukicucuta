@@ -10,9 +10,11 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="Suzuki Colsag Cucuta" />
   <meta name="format-detection" content="telephone=no" />
-  <link rel="apple-touch-icon" href="assets/logo-header.svg" />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="shortcut icon" href="favicon.svg" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="shortcut icon" href="favicon.ico" />
 
   <!-- Especificación Oficial de Google para Nombre del Sitio (Google Search Site Names) -->
   <script type="application/ld+json">
@@ -53,8 +55,6 @@
   <!-- Optimización Core Web Vitals (LCP, INP, CLS) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
-  <link rel="preconnect" href="https://unpkg.com" crossorigin />
   <link rel="dns-prefetch" href="https://www.google.com" />
   <link rel="dns-prefetch" href="https://wa.me" />
   <link rel="preload" as="image" href="assets/logo-header.svg" fetchpriority="high" />
@@ -276,10 +276,12 @@
   }
   </script>
 
+  <!-- Tailwind CSS Estático Precompilado (Carga 100% confiable e instantánea sin parpadeos ni bloqueos) -->
+  <link rel="stylesheet" href="css/tailwind.min.css" />
   <!-- Estilos personalizados -->
   <link rel="stylesheet" href="css/styles.css" />
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind CSS CDN de respaldo -->
+  <script defer src="https://cdn.tailwindcss.com"></script>
   <!-- Lucide Icons (Versión fija con caché de 1 año) -->
   <script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
 </head>
